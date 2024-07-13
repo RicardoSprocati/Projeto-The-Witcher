@@ -29,6 +29,8 @@ export const watchFiles = () => {
     gulp.watch('./src/scripts/*.js', scripts);
 }
 
-export default gulp.parallel(styles,watchFiles,scripts,images);
+gulp.task('default', gulp.parallel(styles, scripts, images, watchFiles));
 
+gulp.task('build', gulp.parallel(styles, scripts, images));
 
+export {styles,scripts,images};
